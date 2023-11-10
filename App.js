@@ -7,7 +7,15 @@ export default function App() {
   const [moedaOrigem, setMoedaOrigem] = useState('BRL')
   const [moedaDestino, setMoedaDestino] = useState('USD')
   const [valorEntrada, setValorEntrada] = useState('33.33')
-  const [resultado, setResultado]  =useState('')
+  const [resultado, setResultado]  =useState('746764746')
+
+  const handleConverter = () => {}
+  const handleLimpar = () => {
+    setMoedaOrigem('BRL')
+    setMoedaDestino('UDS')
+    setValorEntrada('33.33')
+    setResultado('')
+  }
   
   
   return (
@@ -49,9 +57,15 @@ export default function App() {
         <Text style={styles.tbMoeda}>Valor para Conversão</Text>
         <TextInput style={styles.input} value={valorEntrada} onChangeText={setValorEntrada} keyboardType='numeric'></TextInput>
       </View>
-      
-      <Pressable style={styles.button}><Text style={styles.title}>Converter</Text></Pressable>
-      <Pressable style={styles.button}><Text style={styles.title}>Limpar</Text></Pressable>
+      <View>
+        <Pressable style={styles.button}><Text style={styles.title}>Converter</Text></Pressable>
+        <Pressable style={styles.button}><Text style={styles.title} onPress={handleLimpar}>Limpar</Text></Pressable>
+        </View>
+        <View>
+          <Text>Resultado </Text>
+          <Text>{valorEntrada}</Text>
+        </View>
+    
       <StatusBar style="auto" />
     </View>
   );
@@ -60,7 +74,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
+    backgroundColor: 	'#4682B4',
     alignItems: 'center',
     justifyContent: 'center',
   },
